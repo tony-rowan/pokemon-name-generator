@@ -1,5 +1,8 @@
-phonemes = File.readlines("./phonemes.txt", chomp: true)
-pokemon = File.readlines("./pokemon.txt", chomp: true)
+require_relative "./lib/phoneme"
+require_relative "./lib/pokemon"
+
+phonemes = Phoneme.load_data
+pokemon = Pokemon.load_data
 
 puts "🧮 Generating Phonemes"
 puts "======================="
