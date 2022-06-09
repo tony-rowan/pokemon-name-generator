@@ -1,4 +1,3 @@
-
 bulbasaur
 ivysaur
 venusaur
@@ -81,7 +80,6 @@ slowpoke
 slowbro
 magnemite
 magneton
-farfetchd
 doduo
 dodrio
 seel
@@ -120,7 +118,6 @@ goldeen
 seaking
 staryu
 starmie
-mr
 scyther
 jynx
 electabuzz
