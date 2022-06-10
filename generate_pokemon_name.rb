@@ -15,6 +15,10 @@ OptionParser.new do |parser|
   parser.on("-c", "--context LENGTH", Integer, "Length of phonemes to user when building markov statistics") do |c|
     options[:context] = c
   end
+
+  parser.on("-n", "--number COUNT", Integer, "Number of names to generate") do |n|
+    options[:number] = n
+  end
 end.parse!
 
 corpus = Corpus.new
@@ -25,4 +29,4 @@ algorithm = case options[:algorithm]
 end
 
 
-puts algorithm.generate_name
+options[:number].times { puts algorithm.generate_name }
