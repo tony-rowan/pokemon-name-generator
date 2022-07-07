@@ -5,20 +5,34 @@ Pokémon names.
 
 ## Usage
 
-You can choose between algorithms and configure some aspects of each algorithm.
+Usage can be very simple.
+
+```bash
+$ ruby generate_pokemon_name.rb
+```
+
+You can choose between algorithms.
 
 ```bash
 $ ruby generate_pokemon_name.rb --algorithm naive
+$ ruby generate_pokemon_name.rb --algorithm markov
+```
+
+Some algorithms have additional configuration options.
+
+```bash
 $ ruby generate_pokemon_name.rb --algorithm markov --context 2
 ```
 
-You can also produce a number of names at once. Useful for exporting to other
-apps.
+You can also produce a number of names at once.
+Useful for exporting to other apps.
 
 ```bash
 $ ruby generate_pokemon_name.rb \
   --algorithm markov --context 3 --number 1000 > generated_names.txt
 ```
+
+The default options are chosen to produce the most realistic names.
 
 ## Testing
 
