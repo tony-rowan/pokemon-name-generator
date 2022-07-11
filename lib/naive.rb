@@ -1,6 +1,10 @@
 class Naive
-  def initialize(corpus)
-    @corpus = corpus
+  def initialize(training_data)
+    @training_data = training_data
+  end
+
+  def name
+    "Naïve"
   end
 
   def generate_name
@@ -9,7 +13,7 @@ class Naive
 
   private
 
-  attr_reader :corpus, :context_length
+  attr_reader :training_data, :context_length
 
   def statistics
     @statistics ||= load_statistics
@@ -17,8 +21,8 @@ class Naive
 
   def load_statistics
     {
-      phoneme_count_distribution: corpus.pokemon_phonemes.values.map(&:count),
-      phoneme_distribution: corpus.pokemon_phonemes.values.flatten
+      phoneme_count_distribution: training_data.map(&:count),
+      phoneme_distribution: training_data.flatten
     }
   end
 end

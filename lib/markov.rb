@@ -1,7 +1,11 @@
 class Markov
-  def initialize(corpus, context_length:)
-    @corpus = corpus
+  def initialize(training_data, context_length:)
+    @training_data = training_data
     @context_length = context_length
+  end
+
+  def name
+    "Markov[#{@context_length}]"
   end
 
   def generate_name
@@ -23,7 +27,7 @@ class Markov
 
   private
 
-  attr_reader :corpus, :context_length
+  attr_reader :training_data, :context_length
 
   def statistics
     @statistics ||= load_statistics
@@ -32,7 +36,7 @@ class Markov
   def load_statistics
     markov_statistics = {}
 
-    corpus.pokemon_phonemes.values.each do |this_pokemon_phonemes|
+    training_data.each do |this_pokemon_phonemes|
       context = []
 
       this_pokemon_phonemes.each do |this_pokemon_phoneme|
@@ -52,6 +56,8 @@ class Markov
         markov_statistics[context] = [nil]
       end
     end
+
+    markov_statistics[[]] = markov_statistics[[]].uniq
 
     markov_statistics
   end
