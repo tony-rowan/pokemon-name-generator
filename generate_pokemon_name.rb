@@ -22,9 +22,12 @@ OptionParser.new do |parser|
 end.parse!
 
 corpus = Corpus.new
+
+pp corpus.send(:load_pokemon_phonemes)["charmander"]
+
 algorithm = case options.fetch(:algorithm, "markov")
-  when "naive" then Naive.new(corpus)
-  when "markov" then Markov.new(corpus, context_length: options.fetch(:context, 3))
+  when "naive" then Naive.new(corpus.pokemon_phonemes)
+  when "markov" then Markov.new(corpus.pokemon_phonemes, context_length: options.fetch(:context, 3))
   else raise "Must provide a valid algorithm: naive or markov."
 end
 
