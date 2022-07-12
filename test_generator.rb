@@ -15,6 +15,10 @@ OptionParser.new do |parser|
   parser.on("-c", "--context LENGTH", Integer, "Markov Only. Length of the markov chain to use.") do |c|
     options[:context] = c
   end
+
+  parser.on("-n", "--number COUNT", Integer, "Number of names to generate. Default 10,000.") do |n|
+    options[:number] = n
+  end
 end.parse!
 
 corpus = Corpus.new
@@ -38,7 +42,7 @@ puts "============================="
 puts "🧪 Generator: #{algorithm.name}"
 puts "============================="
 
-generated_names = 5000.times.map { algorithm.generate_name }
+generated_names = options.fetch(:number, 10_000).times.map { algorithm.generate_name }
 
 puts "Training Data: #{training_data.size}"
 puts "Test Data: #{test_data.size}"
