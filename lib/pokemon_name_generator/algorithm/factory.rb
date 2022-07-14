@@ -15,19 +15,19 @@ module PokemonNameGenerator
 
       private
 
-        attr_reader :training_data, :options
+      attr_reader :training_data, :options
 
-        def context
-          value = begin
-            options.fetch(:context).to_i
-          rescue
-            raise InvalidContextError
-          end
-
-          raise InvalidContextError unless value > 0
-
-          value
+      def context
+        value = begin
+          options.fetch(:context).to_i
+        rescue
+          raise InvalidContextError
         end
+
+        raise InvalidContextError unless value > 0
+
+        value
+      end
     end
   end
 end
