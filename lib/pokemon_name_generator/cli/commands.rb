@@ -34,9 +34,12 @@ module PokemonNameGenerator
           puts "============================="
           puts "🧪 Generator: #{algorithm.name}"
           puts "============================="
-          puts ""
-          puts "Generating #{options.fetch(:number)} names..."
-          puts ""
+
+          if options.fetch(:number).to_i > 1
+            puts ""
+            puts "Generating #{options.fetch(:number)} names..."
+            puts ""
+          end
 
           options.fetch(:number).to_i.times { puts algorithm.generate_name }
         end
