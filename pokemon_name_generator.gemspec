@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.metadata["source_code_uri"] = "https://github.com/tony-rowan/pokemon-name-generator"
   s.metadata["changelog_uri"] = "https://github.com/tony-rowan/pokemon-name-generator/blob/main/LICENSE.txt"
 
-  s.files = Dir["{lib}/**/*.rb", "*.md", "bin/pokeng"]
+  s.files = Dir["{lib}/**/*.rb", "{data}/**/*.txt", "*.md", "bin/pokeng"]
   s.require_path = "lib"
 
   s.executables = ["pokeng"]

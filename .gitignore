@@ -1,6 +1,5 @@
 .DS_Store
 generated_names.txt
-*.gem
 /.bundle/
 /.yardoc
 /_yardoc/
