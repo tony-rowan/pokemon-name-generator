@@ -17,32 +17,32 @@ module PokemonNameGenerator
       class Generate < Dry::CLI::Command
         desc "Generate one or more Pokémon Names"
 
-        argument :algorithm, default: "markov", values: %w[naive markov], desc: "Algorithm to use"
+        option :algorithm, default: "markov", values: %w[naive markov], desc: "Algorithm to use"
 
-        argument :context, type: :integer, default: 3, desc: "Number of links in the Markov Chain"
+        option :context, type: :integer, default: 3, desc: "Number of links in the Markov Chain"
 
-        argument :number, type: :integer, default: 1, desc: "Number of names to generate"
+        option :number, type: :integer, default: 1, desc: "Number of names to generate"
 
         def call(**options)
           corpus = Corpus.new
 
           algorithm = case options.fetch(:algorithm)
           when "naive" then Naive.new(corpus.pokemon_phonemes)
-          when "markov" then Markov.new(corpus.pokemon_phonemes, context_length: options.fetch(:context))
+          when "markov" then Markov.new(corpus.pokemon_phonemes, context_length: options.fetch(:context).to_i)
           end
 
-          options.fetch(:number).times { puts algorithm.generate_name }
+          options.fetch(:number).to_i.times { puts algorithm.generate_name }
         end
       end
 
       class Test < Dry::CLI::Command
         desc "Test an algorithm"
 
-        argument :algorithm, values: %w[naive markov], desc: "Algorithm to test"
+        option :algorithm, required: true, values: %w[naive markov], desc: "Algorithm to test"
 
-        argument :context, type: :integer, desc: "Number of links in the Markov Chain"
+        option :context, required: true, type: :integer, desc: "Number of links in the Markov Chain"
 
-        argument :number, type: :integer, default: 10_000, desc: "Number of names to generate"
+        option :number, type: :integer, default: 10_000, desc: "Number of names to generate"
 
         def call(**options)
           corpus = Corpus.new
@@ -58,15 +58,14 @@ module PokemonNameGenerator
 
           algorithm = case options.fetch(:algorithm)
           when "naive" then Naive.new(training_data)
-          when "markov" then Markov.new(training_data, options.fetch(:context))
-          else raise "Must provide a valid algorithm: naive or markov."
+          when "markov" then Markov.new(training_data, context_length: options.fetch(:context).to_i)
           end
 
           puts "============================="
           puts "🧪 Generator: #{algorithm.name}"
           puts "============================="
 
-          generated_names = options.fetch(:number).times.map { algorithm.generate_name }
+          generated_names = options.fetch(:number).to_i.times.map { algorithm.generate_name }
 
           puts "Training Data: #{training_data.size}"
           puts "Test Data: #{test_data.size}"
