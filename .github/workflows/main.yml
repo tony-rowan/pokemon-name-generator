@@ -8,9 +8,22 @@ on:
   pull_request:
 
 jobs:
-  build:
+  Lint:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+    name: Standard
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+    - name: Run Standard
+      run: bin/rake standard
+
+  Tests:
+    runs-on: ubuntu-latest
+    name: Test with ruby ${{ matrix.ruby }}
     strategy:
       matrix:
         ruby:
@@ -23,5 +36,5 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
-    - name: Run the default task
-      run: bundle exec rake
+    - name: Run the tests
+      run: bin/rake spec
