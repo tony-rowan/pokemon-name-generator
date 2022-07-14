@@ -1,4 +1,4 @@
-require "features_helper"
+require "cli_helper"
 
 RSpec.describe "Test Command", :type => :aruba do
   it "returns an error with no algorithm chosen" do

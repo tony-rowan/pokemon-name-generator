@@ -1,7 +1,9 @@
-module Phoneme
-  DATA = File.expand_path("../../../data/phonemes.txt", __FILE__)
+module PokemonNameGenerator
+  module Phoneme
+    DATA = File.expand_path("../../../data/phonemes.txt", __FILE__)
 
-  def self.load_data
-    File.readlines(DATA, chomp: true)
+    def self.load_data
+      File.readlines(DATA, chomp: true)
+    end
   end
 end

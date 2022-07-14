@@ -1,4 +1,4 @@
-require "features_helper"
+require "cli_helper"
 
 RSpec.describe "Generate Command", :type => :aruba do
   it "allows the user to run with no options given" do

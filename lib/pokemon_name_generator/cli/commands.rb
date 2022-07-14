@@ -24,19 +24,14 @@ module PokemonNameGenerator
         option :number, type: :integer, default: 1, desc: "Number of names to generate"
 
         def call(**options)
-          corpus = Corpus.new
-
-          algorithm = case options.fetch(:algorithm)
-          when "naive" then Naive.new(corpus.pokemon_phonemes)
-          when "markov" then Markov.new(corpus.pokemon_phonemes, context_length: options.fetch(:context).to_i)
-          end
+          algorithm = Algorithm::Factory.new(**options).build_algorithm
 
           puts "============================="
           puts "🧪 Generator: #{algorithm.name}"
           puts "============================="
+          puts ""
 
           if options.fetch(:number).to_i > 1
-            puts ""
             puts "Generating #{options.fetch(:number)} names..."
             puts ""
           end
@@ -66,10 +61,7 @@ module PokemonNameGenerator
           training_data = all_data[..mid_point]
           test_data = all_data[mid_point..]
 
-          algorithm = case options.fetch(:algorithm)
-          when "naive" then Naive.new(training_data)
-          when "markov" then Markov.new(training_data, context_length: options.fetch(:context).to_i)
-          end
+          algorithm = Algorithm::Factory.new(training_data: training_data, **options).build_algorithm
 
           puts "============================="
           puts "🧪 Generator: #{algorithm.name}"
