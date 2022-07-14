@@ -1,5 +1,5 @@
 module Pokemon
-  DATA = "./data/pokemon.txt"
+  DATA = File.expand_path('../../../data/pokemon.txt', __FILE__)
 
   def self.load_data
     File.readlines(DATA, chomp: true)
