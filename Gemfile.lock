@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    pokemon_name_generator (0.1.0)
+      dry-cli (~> 0.7.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -8,6 +14,7 @@ GEM
     parser (3.1.2.0)
       ast (~> 2.4.1)
     rainbow (3.1.1)
+    rake (13.0.6)
     regexp_parser (2.5.0)
     rexml (3.2.5)
     rspec (3.11.0)
@@ -47,7 +54,8 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
-  dry-cli
+  pokemon_name_generator!
+  rake
   rspec
   standard
 
