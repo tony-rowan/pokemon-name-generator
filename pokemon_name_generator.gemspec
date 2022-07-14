@@ -18,9 +18,9 @@ Gem::Specification.new do |s|
 
   s.executables = ["pokeng"]
 
-  s.add_runtime_dependency 'dry-cli', '~> 0.7.0'
+  s.add_runtime_dependency "dry-cli", "~> 0.7.0"
 
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'standard'
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "standard"
 end
