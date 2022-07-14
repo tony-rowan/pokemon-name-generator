@@ -10,7 +10,6 @@ class Corpus
     @pokemon_phonemes ||= load_pokemon_phonemes.values
   end
 
-
   def phonemes
     @phonemes ||= Phoneme.load_data
   end
@@ -23,7 +22,7 @@ class Corpus
 
   # This generates a hash so we can debug it easily
   def load_pokemon_letters
-    pokemon.map { |name| [name, name.split("")] }.to_h
+    pokemon.map { |name| [name, name.chars] }.to_h
   end
 
   # This generates a hash so we can debug it easily
