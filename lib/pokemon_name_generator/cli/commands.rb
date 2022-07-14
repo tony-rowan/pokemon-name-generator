@@ -31,6 +31,13 @@ module PokemonNameGenerator
           when "markov" then Markov.new(corpus.pokemon_phonemes, context_length: options.fetch(:context).to_i)
           end
 
+          puts "============================="
+          puts "🧪 Generator: #{algorithm.name}"
+          puts "============================="
+          puts ""
+          puts "Generating #{options.fetch(:number)} names..."
+          puts ""
+
           options.fetch(:number).to_i.times { puts algorithm.generate_name }
         end
       end
