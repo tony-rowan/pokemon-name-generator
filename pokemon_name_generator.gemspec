@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.license = "MIT"
   s.metadata["homepage_uri"] = s.homepage
   s.metadata["source_code_uri"] = "https://github.com/tony-rowan/pokemon-name-generator"
-  s.metadata["changelog_uri"] = "https://github.com/tony-rowan/pokemon-name-generator/tree/main/LICENSE.txt"
+  s.metadata["changelog_uri"] = "https://github.com/tony-rowan/pokemon-name-generator/blob/main/LICENSE.txt"
 
   s.files = Dir["{lib}/**/*.rb", "*.md", "bin/pokeng"]
   s.require_path = "lib"
