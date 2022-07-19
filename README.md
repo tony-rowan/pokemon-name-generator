@@ -2,6 +2,7 @@
 
 ![Lint](https://github.com/tony-rowan/pokemon-name-generator/actions/workflows/lint.yml/badge.svg)
 ![Test](https://github.com/tony-rowan/pokemon-name-generator/actions/workflows/test.yml/badge.svg)
+[![Gem Version](https://badge.fury.io/rb/pokemon_name_generator.svg)](https://badge.fury.io/rb/pokemon_name_generator)
 
 A command line ruby utility to generate fake (and sometimes accidentally real)
 Pokémon names.
