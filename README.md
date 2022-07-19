@@ -1,5 +1,8 @@
 # Pokémon Name Generator
 
+![Lint](https://github.com/tony-rowan/pokemon-name-generator/actions/workflows/lint.yml/badge.svg)
+![Test](https://github.com/tony-rowan/pokemon-name-generator/actions/workflows/test.yml/badge.svg)
+
 A command line ruby utility to generate fake (and sometimes accidentally real)
 Pokémon names.
 
