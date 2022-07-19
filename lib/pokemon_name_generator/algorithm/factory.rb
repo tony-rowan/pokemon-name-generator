@@ -1,7 +1,7 @@
 module PokemonNameGenerator
   module Algorithm
     class Factory
-      def initialize(training_data: Corpus.new.pokemon_phonemes, **options)
+      def initialize(training_data: Corpus::Names.as_letters, **options)
         @training_data = training_data
         @options = options
       end

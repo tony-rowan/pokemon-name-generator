@@ -50,9 +50,8 @@ module PokemonNameGenerator
         option :number, type: :integer, default: 10_000, desc: "Number of names to generate"
 
         def call(**options)
-          corpus = Corpus.new
-          actual_pokemon = corpus.pokemon
-          all_data = corpus.pokemon_phonemes.shuffle
+          actual_pokemon = Corpus::Data.new.load_pokemon_names
+          all_data = Corpus::Names.as_letters.shuffle
 
           longest_name = actual_pokemon.max_by(&:length)
           shortest_name = actual_pokemon.min_by(&:length)
