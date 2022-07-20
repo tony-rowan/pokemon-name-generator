@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pokemon_name_generator (0.1.3)
+    pokemon_name_generator (0.2.0)
       dry-cli (~> 0.7.0)
 
 GEM
