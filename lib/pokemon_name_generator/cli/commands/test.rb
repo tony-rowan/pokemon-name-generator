@@ -41,11 +41,11 @@ module PokemonNameGenerator
           puts ""
           puts "Unique Names: #{unique_pokemon_generated.size}"
           puts "Training Pokémon: #{training_pokemon_generated.size}"
-          puts "#{training_pokemon_generated}" if options.fetch(:show_names, false)
+          puts training_pokemon_generated.to_s if options.fetch(:show_names, false)
           puts "Test Pokémon: #{test_pokemon_generated.size}"
-          puts "#{test_pokemon_generated}" if options.fetch(:show_names, false)
+          puts test_pokemon_generated.to_s if options.fetch(:show_names, false)
           puts "New Pokémon: #{new_pokemon_generated.size}"
-          puts "#{new_pokemon_generated}" if options.fetch(:show_names, false)
+          puts new_pokemon_generated.to_s if options.fetch(:show_names, false)
           puts ""
         end
       end
