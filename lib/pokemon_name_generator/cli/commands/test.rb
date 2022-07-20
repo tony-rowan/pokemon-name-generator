@@ -37,6 +37,9 @@ module PokemonNameGenerator
           test_pokemon_generated = unique_pokemon_generated.intersection(test_data.map(&:join))
           new_pokemon_generated = unique_pokemon_generated - actual_pokemon
 
+          upper_limit = actual_pokemon.max_by(&:size).size
+          lower_limit = actual_pokemon.min_by(&:size).size
+
           puts "Done."
           puts ""
           puts "Unique Names: #{unique_pokemon_generated.size}"
@@ -45,6 +48,8 @@ module PokemonNameGenerator
           puts "Test Pokémon: #{test_pokemon_generated.size}"
           puts test_pokemon_generated.to_s if options.fetch(:show_names, false)
           puts "New Pokémon: #{new_pokemon_generated.size}"
+          puts "  Too Long: #{new_pokemon_generated.select { |x| x.size > upper_limit }.size}"
+          puts "  Too Short: #{new_pokemon_generated.select { |x| x.size < lower_limit }.size}"
           puts new_pokemon_generated.to_s if options.fetch(:show_names, false)
           puts ""
         end
