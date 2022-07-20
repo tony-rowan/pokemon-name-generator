@@ -42,7 +42,7 @@ You can also produce a number of names at once.
 Useful for exporting to other apps.
 
 ```bash
-$ pokeng generate --algorithm=markov --context=3 --number=100000 > generated_names.txt
+$ pokeng generate --algorithm=markov --context=3 --number=100000 --quiet > generated_names.txt
 ```
 
 The default options are chosen to produce the most realistic names.
