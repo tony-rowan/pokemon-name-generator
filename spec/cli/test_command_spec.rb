@@ -34,7 +34,7 @@ RSpec.describe "Test Command", type: :aruba do
   end
 
   it "allows the user to control the number of names generated" do
-    run_command("pokeng test --algorithm=naive --number 10000")
+    run_command("pokeng test --algorithm=naive --sample 10000")
 
     expect(last_command_started).to have_exit_status(0)
     expect(last_command_started).to have_output(/10000/)
